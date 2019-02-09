@@ -1,34 +1,52 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt-nodejs');
-const cors = require('cors');
-const mongoose = require('mongoose');
+const app = require("./backend/app");
+const debug = require("debug")("node-angular");
+const http = require("http");
 
-/* Controllers */
-const register = require('./controllers/register');
-const signin = require('./controllers/signin');
+const normalizePort = val => {
+  var port = parseInt(val, 10);
 
-/* DB connection config */
-mongoose.connect('mongodb+srv://goodtogo:1xivK8fPx59jyIYI@meanapp-ewu5f.mongodb.net/test?retryWrites=true', {useNewUrlParser: true})
-.then(() => {
-    console.log("Connected to cloud DB!");
-}).catch(() => {
-    console.log("Connection failed!");
-});
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
 
-const app = express();
-app.use(bodyParser.json());
-app.use(cors());
+  if (port >= 0) {
+    // port number
+    return port;
+  }
 
+  return false;
+};
 
-app.post('/signin', (req, res) => {
-	signin.handleSignin(req, res, bcrypt);
-});
+const onError = error => {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  switch (error.code) {
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
+      process.exit(1);
+      break;
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
 
-app.post('/register', (req, res) => {
-	register.handleRegister(req, res, bcrypt);
-});
+const onListening = () => {
+  const addr = server.address();
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  debug("Listening on " + bind);
+};
 
-app.listen(3000, () => {
-	console.log('Blog back end server is running on port 3000');
-});
+const port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
+
+const server = http.createServer(app);
+server.on("error", onError);
+server.on("listening", onListening);
+server.listen(port);
