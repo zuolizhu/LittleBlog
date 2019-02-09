@@ -16,12 +16,14 @@ mongoose.connect('mongodb+srv://goodtogo:1xivK8fPx59jyIYI@meanapp-ewu5f.mongodb.
 });
 mongoose.set('useCreateIndex', true);
 
-
-
-
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+
+
+//CORS config
+let corsOptions = {allowedHeaders: ['Content-Type', 'Authorization']};
+
+app.use(cors(corsOptions));
 
 
 app.use('/api/posts', postsRoutes);
