@@ -3,7 +3,7 @@
 ### Target 
 :black_square_button: Styling "Articles" which will be publised and avalibale online.
 
-:black_square_button: Listing the published articles.
+✅ Listing the published articles.
 
 :black_square_button: Email & chrome notifications for any new articles published on the platform.
 

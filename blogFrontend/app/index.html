@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="littleBlog">
+<head>
+    <title>Little Blog</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- angular scripts -->
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="../node_modules/ngstorage/ngStorage.min.js"></script>
+    <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
+    <!-- application scripts -->
+    <script src="/app/app.js"></script>
+</head>
+<body ng-controller="mainController">
+    <!-- main app container -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-repeat="post in myPosts">
+            <h2>{{ post.title }}</h2>
+            <p> {{ post.content }} </p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <p>This page should be working</p>
+    </div>
+
+</body>
+</html>
