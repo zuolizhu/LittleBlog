@@ -1,0 +1,1 @@
+angular.module('littleBlog', ['ngRoute', 'appRoutes', 'MainCtrl', 'PostCtrl', 'MainService', 'PostService']);
