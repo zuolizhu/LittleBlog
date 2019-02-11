@@ -31,8 +31,8 @@ router.get("/:id", (req, res, next) => {
 
 
 // Unlock for dev
-// router.post("", (req, res, next) => {
-router.post("", checkAuth, (req, res, next) => {
+router.post("", (req, res, next) => {
+// router.post("", checkAuth, (req, res, next) => {
     // Construct a new Post object based on mongoose schema
     const post = new Post({
         title: req.body.title,
