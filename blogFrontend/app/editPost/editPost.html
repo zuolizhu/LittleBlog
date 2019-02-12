@@ -11,7 +11,12 @@
         <form method="post" ng-controller="TinyMceController">
             <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
             <br>
+            <!-- <form class="notification-form" ng-controller="exampleForm">
+                <button type="button" class="show-button btn btn-primary" ng-click="savePost()" notification-title="title" notification-text="text">Publish</button>
+            </form> -->
+
             <button type="button" class="btn btn-primary" ng-click="savePost()">Publish</button>
+            
         </form>
     </div>
   

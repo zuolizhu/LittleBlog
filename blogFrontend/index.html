@@ -28,11 +28,8 @@
 </head>
 <body>
     <!-- main app container -->
-
-
-   
-
     <div class="container">
+        <!-- navigation bar -->
         <div class="navbar">
             <nav class="nav">
                 <a class="nav-link" href="/">Home</a>
@@ -40,20 +37,16 @@
                 <a class="nav-link" href="/login">Login</a>
             </nav>
         </div>
-
-
-        <ui-view></ui-view>
-
+        <!-- main app -->
+        <div class="col-sm-8 col-sm-offset-2">
+            <ui-view></ui-view>
+        </div>
     </div>
 
     <div class="text-center">
         <p>This app is under construction</p>
     </div>
-
-    <div ng-view></div>
-
-
-
+    <!-- chrome push button -->
     <div class="container">
         <form class="notification-form" ng-controller="exampleForm">
             <button type="button" class="show-button btn btn-primary" notification-title="title" notification-text="text">Show Notification</button>
