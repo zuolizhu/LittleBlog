@@ -10,17 +10,14 @@
     <!-- 2. render raw html to content -->
     <script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-    <!-- <script src="node_modules/angular-route/angular-route.js"></script> -->
     <script type="text/javascript" src="node_modules/ngstorage/ngStorage.min.js"></script>
     <script type="text/javascript" src="node_modules/angular-messages/angular-messages.min.js"></script>
-    <!-- 3. push notification -->
-    <script type="text/javascript" src="node_modules/simple-web-notification/web-notification.js"></script>
-    <script type="text/javascript" src="node_modules/angular-web-notification/angular-web-notification.js"></script>
     <!-- application scripts -->
     <script src="app.js"></script>
     <script src="app/app-services/authentication.service.js"></script>
     <script src="/app/home/home.js"></script>
     <script src="/app/login/login.js"></script>
+    <!-- tinyMCE integrated -->
     <script src="/app/editPost/editPost.js"></script>
     <script type="text/javascript" src="bower_components/tinymce/tinymce.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
@@ -45,12 +42,6 @@
 
     <div class="text-center">
         <p>This app is under construction</p>
-    </div>
-    <!-- chrome push button -->
-    <div class="container">
-        <form class="notification-form" ng-controller="exampleForm">
-            <button type="button" class="show-button btn btn-primary" notification-title="title" notification-text="text">Show Notification</button>
-        </form>
     </div>
     
 </body>
