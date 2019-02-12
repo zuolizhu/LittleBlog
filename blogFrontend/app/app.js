@@ -1,10 +1,7 @@
 var littleBlog = angular.module('littleBlog', ['ngSanitize', 'angular-web-notification']);
 
+// Posts controller
 littleBlog.controller('mainController', function PostListController($scope, $http){
-    
-    $scope.title = 'Example Notification';
-    $scope.text = 'This is some notification text.';
-
     // Get all posts from database
     $http.get('http://localhost:3000/api/posts/')
     .then(function fetchedPosts(response){
@@ -39,20 +36,12 @@ littleBlog.controller('exampleForm', ['$scope', function ($scope) {
                 webNotification.showNotification(scope.notificationTitle, {
                     serviceWorkerRegistration: serviceWorkerRegistration,
                     body: scope.notificationText,
-                    onClick: function onNotificationClicked() {
-                        console.log('Notification clicked.');
-                    },
                     autoClose: 6000 //auto close the notification after 6 seconds
                 }, function onShow(error, hide) {
                     if (error) {
                         window.alert('Unable to show notification: ' + error.message);
                     } else {
                         console.log('Notification Shown.');
-                        // If autoClose does not work
-                        // setTimeout(function hideNotification() {
-                        //     console.log('Hiding notification....');
-                        //     hide(); //manually close the notification
-                        // }, 7000);
                     }
                 });
             });
