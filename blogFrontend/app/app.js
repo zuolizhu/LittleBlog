@@ -1,4 +1,4 @@
-var littleBlog = angular.module('littleBlog', []);
+var littleBlog = angular.module('littleBlog', ['ngSanitize']);
 
 littleBlog.controller('mainController', function PostListController($scope, $http){
     // Get all posts from database

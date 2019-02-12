@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- angular scripts -->
     <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="../node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
     <script src="../node_modules/ngstorage/ngStorage.min.js"></script>
     <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
@@ -25,7 +26,8 @@
     <div class="container">
         <div ng-repeat="post in myPosts">
             <h2>{{ post.title }}</h2>
-            <p> {{ post.content }} </p>
+            <!-- <p> {{ post.content }} </p> -->
+            <p ng-bind-html="post.content"></p>
         </div>
     </div>
 
