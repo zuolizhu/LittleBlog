@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="littleBlog">
+<head>
+    <title>Little Blog</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- angular scripts -->
+    <!-- 1. basic angularjs library -->
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <!-- 2. render raw html to content -->
+    <script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <!-- <script src="node_modules/angular-route/angular-route.js"></script> -->
+    <script type="text/javascript" src="node_modules/ngstorage/ngStorage.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-messages/angular-messages.min.js"></script>
+    <!-- 3. push notification -->
+    <script type="text/javascript" src="node_modules/simple-web-notification/web-notification.js"></script>
+    <script type="text/javascript" src="node_modules/angular-web-notification/angular-web-notification.js"></script>
+    <!-- application scripts -->
+    <script src="app.js"></script>
+    <script src="app/app-services/authentication.service.js"></script>
+    <script src="/app/home/home.js"></script>
+    <script src="/app/login/login.js"></script>
+    <script src="/app/editPost/editPost.js"></script>
+    <script type="text/javascript" src="bower_components/tinymce/tinymce.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+</head>
+<body>
+    <!-- main app container -->
+
+
+   
+
+    <div class="container">
+        <div class="navbar">
+            <nav class="nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/newpost">New Post</a>
+                <a class="nav-link" href="/login">Login</a>
+            </nav>
+        </div>
+
+
+        <ui-view></ui-view>
+
+    </div>
+
+    <div class="text-center">
+        <p>This page should be working</p>
+    </div>
+
+    <div ng-view></div>
+
+
+
+    <div class="container">
+        <form class="notification-form" ng-controller="exampleForm">
+            <button type="button" class="show-button btn btn-primary" notification-title="title" notification-text="text">Show Notification</button>
+        </form>
+    </div>
+    
+</body>
+</html>

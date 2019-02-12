@@ -2,7 +2,7 @@
   "name": "blogFrontend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
@@ -13,6 +13,7 @@
     "@uirouter/angularjs": "^1.0.22",
     "angular": "^1.7.6",
     "angular-messages": "^1.7.7",
+    "angular-route": "^1.7.7",
     "angular-sanitize": "^1.7.7",
     "angular-web-notification": "^1.2.31",
     "express": "^4.16.4",
