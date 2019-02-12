@@ -14,7 +14,6 @@
         return service;
 
         function Login(email, password, callback) {
-            console.log("login clicked!");
             $http.post('http://localhost:3000/api/user/login', { email: email, password: password })
             .then(function successCallback(response){
                 if(response.data.token) {

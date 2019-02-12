@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <head>
-  <!-- <script type="text/javascript" src="../../bower_components/tinymce/tinymce.js"></script>
-  <script type="text/javascript" src="../../bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="../../bower_components/angular-ui-tinymce/src/tinymce.js"></script>
-  <script type="text/javascript" src="editPost.js"></script> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body ng-app="postEditor">
+<body>
     <div class="container">
-        <h2>Post title</h2>
+        <h2>Article title</h2>
         <input type="text" ng-model="postTitle">
         <br>
         <br>
         <form method="post" ng-controller="TinyMceController">
             <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
             <br>
-            <button type="button" class="btn btn-primary" ng-click="savePost()">Save</button>
+            <button type="button" class="btn btn-primary" ng-click="savePost()">Publish</button>
         </form>
     </div>
   

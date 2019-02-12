@@ -1,5 +1,5 @@
 var littleBlog = angular
-    .module('littleBlog', ['ngSanitize', 'angular-web-notification', 'ui.router', 'ngStorage'])
+    .module('littleBlog', ['ngSanitize', 'angular-web-notification', 'ui.router', 'ngStorage', 'ui.tinymce'])
     .config(config)
     .run(run);
 
@@ -46,17 +46,6 @@ function run($rootScope, $http, $location, $localStorage){
         }
     });
 }
-
-// Posts controller
-// littleBlog.controller('mainController', function PostListController($scope, $http){
-//     // Get all posts from database
-//     $http.get('http://localhost:3000/api/posts/')
-//     .then(function fetchedPosts(response){
-//         $scope.myPosts = response.data.posts;
-//     }, function fetchingError(response){
-//         console.log("error: " + response);
-//     });
-// });
 
 // Notification controller
 littleBlog.controller('exampleForm', ['$scope', function ($scope) {

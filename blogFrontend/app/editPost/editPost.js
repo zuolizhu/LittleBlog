@@ -1,34 +1,39 @@
-var editPostModule = angular.module('postEditor', ['ui.tinymce']);
+(function () {
+  'use strict';
 
-editPostModule.controller('TinyMceController', function($scope, $http) {
-  $scope.tinymceModel = 'Initial content';
-  $scope.getContent = function() {
-    console.log('Editor content:', $scope.tinymceModel);
-  };
+  angular
+      .module('littleBlog')
+      .controller('TinyMceController', Controller);
 
-  $scope.setContent = function() {
-    $scope.tinymceModel = 'Time: ' + (new Date());
-  };
-
-  $scope.tinymceOptions = {
-    plugins: 'link image code',
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
-  };
-
-  $scope.savePost = function() {
-    const ariticle = {
-      title: $scope.postTitle,
-      content: $scope.tinymceModel
+  function Controller($scope, $http, $location) {
+    $scope.tinymceModel = 'Initial content';
+    $scope.getContent = function() {
+      console.log('Editor content:', $scope.tinymceModel);
     };
-    $http.post('http://localhost:3000/api/posts/', ariticle)
-    .then(function(response) {
-      console.log('Article sent ... ' + response);
-    }, function(error) {
-      console.log('Fail to sent, error: ' + error);
-    });
-    
-      // console.log('Save clicked! \n' + "Title: \n" + $scope.postTitle + "\nBody: \n" + $scope.tinymceModel);
-      console.log('Input check : ' + ariticle.title + "\nBody:\n" + ariticle.content);
-  };
 
-});
+    $scope.setContent = function() {
+      $scope.tinymceModel = 'Time: ' + (new Date());
+    };
+
+    $scope.tinymceOptions = {
+      plugins: 'link image code',
+      toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+    };
+
+    $scope.savePost = function() {
+      const ariticle = {
+        title: $scope.postTitle,
+        content: $scope.tinymceModel
+      };
+      $http.post('http://localhost:3000/api/posts/', ariticle)
+      .then(function(response) {
+        console.log('Article sent ... ' + response);
+        $location.path('/');
+      }, function(error) {
+        console.log('Fail to sent, error: ' + error);
+      });
+    };
+    
+  }
+
+})();
