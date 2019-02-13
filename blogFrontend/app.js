@@ -1,5 +1,5 @@
 var littleBlog = angular
-    .module('littleBlog', ['ngSanitize', 'ui.router', 'ngStorage', 'ui.tinymce', 'cgNotify'])
+    .module('littleBlog', ['ngSanitize', 'ui.router', 'ngStorage', 'ui.tinymce', 'angular-web-notification'])
     .config(config)
     .run(run);
 
