@@ -2,7 +2,29 @@ const express = require('express');
 const Post = require('../models/post');
 const checkAuth = require("../middleware/authValidator");
 
+const nodemailer = require('nodemailer');
+
 const router = express.Router();
+
+
+
+// nodemailer config
+let transporter = nodemailer.createTransport({
+    host: "smtp.sendgrid.net",
+    port: 587,
+    secure: false, // upgrade later with STARTTLS
+    auth: {
+      user: "apikey",
+      pass: "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"
+    }
+  });
+
+  let mailOptions = {
+      from: 'zzhu9@albany.edu',
+      to: 'slipper17@outlook.com',
+      subject: 'New article has been uploaded!',
+      text: 'Little blog has new update!'
+  };
 
 router.get("", (req, res, next) => {
 
@@ -38,8 +60,18 @@ router.post("", (req, res, next) => {
         title: req.body.title,
         content: req.body.content
     });
+
     // Save created post into cloud DB
     post.save().then(createdPost => {
+        // Send update email to user
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
+        // Send response information
         res.status(201).json({
             message: 'Post added successfully!',
             postId: createdPost._id

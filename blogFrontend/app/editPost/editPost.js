@@ -5,7 +5,7 @@
       .module('littleBlog')
       .controller('TinyMceController', Controller);
 
-  function Controller($scope, $http, $location) {
+  function Controller($scope, $http, $location, notify) {
     $scope.tinymceModel = 'Initial content';
     $scope.getContent = function() {
       console.log('Editor content:', $scope.tinymceModel);
@@ -29,6 +29,7 @@
       .then(function(response) {
         console.log('Article sent ... ' + response);
         $location.path('/');
+        notify({message: 'An new article has been uploaded!', position: 'right'});
       }, function(error) {
         console.log('Fail to sent, error: ' + error);
       });

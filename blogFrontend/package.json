@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@cgross/angular-notify": "^2.5.1",
     "@uirouter/angularjs": "^1.0.22",
     "angular": "^1.7.6",
     "angular-messages": "^1.7.7",
